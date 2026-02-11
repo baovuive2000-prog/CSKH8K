@@ -3,184 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>CSKH 8KBET - Hội Viên Chính Thức</title>
-    
+    <title>CSKH 8KBET - Hỗ Trợ Hội Viên</title>
     <link rel="manifest" href="manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968756.png">
-    
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-
     <style>
-        * { font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
-        body { background-color: #020617; color: #f8fafc; overflow: hidden; }
-        
-        /* Hiệu ứng kính mờ Glassmorphism */
-        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        
-        /* Hiệu ứng nền chuyển động */
-        .bg-animate {
-            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #020617 100%);
-            position: fixed; inset: 0; z-index: -1;
-        }
-
-        /* Animation cho nút bấm */
-        @keyframes shine {
-            0% { left: -100%; }
-            20% { left: 100%; }
-            100% { left: 100%; }
-        }
-        .btn-premium {
-            position: relative; overflow: hidden;
-            background: linear-gradient(90deg, #0ea5e9, #2563eb);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .btn-premium::after {
-            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shine 3s infinite;
-        }
-
-        /* Hiệu ứng chỉ tay iOS */
-        .ios-guide-box {
-            position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%);
-            z-index: 1000; width: 85%; max-width: 320px; display: none;
-        }
-
-        /* Khung Chat */
-        #chat-area::-webkit-scrollbar { width: 4px; }
-        #chat-area::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+        body { background: #020617; color: white; font-family: sans-serif; overflow: hidden; }
+        .glass { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-fast { background: linear-gradient(90deg, #0ea5e9, #2563eb); animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7); } 70% { transform: scale(1.02); box-shadow: 0 0 0 15px rgba(14, 165, 233, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); } }
+        .ios-pointer { position: fixed; bottom: 85px; left: 50%; transform: translateX(-50%); z-index: 100; display: none; }
     </style>
 </head>
-<body class="h-screen flex flex-col">
-    <div class="bg-animate"></div>
+<body class="h-screen flex flex-col justify-between">
 
-    <header class="p-4 glass flex items-center justify-between sticky top-0 z-50">
-        <div class="flex items-center gap-3">
-            <div class="relative">
-                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" class="w-10 h-10 rounded-xl shadow-lg shadow-sky-500/20">
-                <span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-slate-900 rounded-full"></span>
-            </div>
-            <div>
-                <h2 class="font-extrabold text-sm tracking-tight text-white uppercase">8KBET CSKH PRO</h2>
-                <p class="text-[10px] text-sky-400 font-semibold tracking-widest uppercase">Hệ thống Hội Viên</p>
-            </div>
-        </div>
-        <div class="flex gap-4 text-slate-400">
-            <button class="hover:text-white transition"><i class="fa-solid fa-shield-check text-lg"></i></button>
-            <button class="hover:text-white transition"><i class="fa-solid fa-ellipsis-vertical text-lg"></i></button>
+    <header class="p-4 flex items-center gap-3 bg-slate-900 border-b border-slate-800">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" class="w-10 h-10 rounded-xl">
+        <div>
+            <h1 class="font-bold text-sm text-sky-400">8KBET CSKH 24/7</h1>
+            <p class="text-[10px] text-green-500 font-bold uppercase">Trực tuyến</p>
         </div>
     </header>
 
-    <main id="chat-area" class="flex-1 overflow-y-auto p-5 flex flex-col gap-6">
-        <div class="flex flex-col gap-2 max-w-[85%] animate-fade-in">
-            <div class="bg-slate-800/80 p-4 rounded-2xl rounded-tl-none shadow-sm border border-slate-700/50">
-                <p class="text-sm leading-relaxed text-slate-200">
-                    Chào mừng bạn đến với trung tâm CSKH 8KBET! 👋 <br><br>
-                    Để nhận hỗ trợ nhanh nhất và không bỏ lỡ thông báo <b>Hoàn Trả Hủ</b>, hãy nhấn nút cài đặt phía dưới để đưa ứng dụng ra màn hình chính nhé!
-                </p>
-            </div>
-            <span class="text-[10px] text-slate-500 ml-1">Vừa xong</span>
+    <main class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 bg-slate-950">
+        <div class="bg-slate-800 p-4 rounded-2xl rounded-tl-none max-w-[85%]">
+            <p class="text-sm">Chào mừng Hội viên! Hãy <b>Cài đặt App</b> ngay để nhận Code 50K và nhận thông báo hỗ trợ nạp rút siêu tốc!</p>
         </div>
     </main>
 
-    <div id="iosPointer" class="ios-guide-box bg-sky-500 text-white p-4 rounded-2xl shadow-2xl text-center">
-        <p class="text-xs font-bold mb-2 uppercase tracking-tighter">Bấm vào nút bên dưới <i class="fa-solid fa-share-from-square mx-1"></i> sau đó chọn "Thêm vào MH chính"!</p>
-        <div class="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[15px] border-t-sky-500 mx-auto mt-2 animate-bounce"></div>
+    <div id="iosPointer" class="ios-pointer animate-bounce text-center">
+        <div class="bg-sky-500 text-white text-[11px] font-bold px-4 py-2 rounded-full shadow-2xl">
+            Bấm "Chia sẻ" rồi chọn "Thêm vào MH chính"
+        </div>
+        <i class="fa-solid fa-caret-down text-sky-500 text-3xl"></i>
     </div>
 
-    <footer class="p-5 glass border-t border-slate-800 space-y-4 shadow-[0_-10px_20px_rgba(0,0,0,0.3)]">
-        
-        <button id="install-btn" class="btn-premium w-full py-4 rounded-2xl flex items-center justify-center gap-3 shadow-xl transform transition hover:scale-[1.02] active:scale-95">
-            <i class="fa-solid fa-bolt-lightning text-white"></i>
-            <span class="font-extrabold text-sm tracking-tight uppercase">Cài Đặt App Nhận Code 50K</span>
+    <footer class="p-6 glass space-y-4">
+        <button id="mainBtn" class="btn-fast w-full py-4 rounded-2xl font-black text-sm flex items-center justify-center gap-3 uppercase shadow-2xl">
+            <i class="fa-solid fa-cloud-arrow-down"></i>
+            Cài Đặt App Ngay
         </button>
-
-        <div class="flex items-center gap-3 bg-slate-900/50 p-1.5 rounded-full border border-slate-700">
-            <button class="w-10 h-10 flex items-center justify-center text-slate-500 hover:text-sky-400 transition"><i class="fa-solid fa-face-smile text-xl"></i></button>
-            <input id="user-input" type="text" placeholder="Nhập tin nhắn..." class="flex-1 bg-transparent border-none text-sm outline-none px-2 text-white placeholder:text-slate-600">
-            <button onclick="handleSend()" class="w-10 h-10 bg-sky-500 rounded-full flex items-center justify-center text-white shadow-lg shadow-sky-500/20 active:scale-90 transition"><i class="fa-solid fa-paper-plane text-xs"></i></button>
-        </div>
+        <p class="text-[10px] text-center text-slate-500 italic">Hệ thống sẽ tự động yêu cầu quyền thông báo sau khi cài đặt</p>
     </footer>
 
     <script>
         let deferredPrompt;
-        const installBtn = document.getElementById('install-btn');
-        const chatArea = document.getElementById('chat-area');
-        const iosPointer = document.getElementById('iosPointer');
+        const mainBtn = document.getElementById('mainBtn');
 
-        // 1. Logic bắt sự kiện cài đặt của Android (PWA)
+        // 1. Vừa vào trang là xin quyền THÔNG BÁO luôn (Không chờ)
+        window.onload = function() {
+            if ("Notification" in window) {
+                Notification.requestPermission();
+            }
+            // Kích hoạt bảng mời cài đặt ngay lập tức (Nếu trình duyệt cho phép)
+            console.log("Hệ thống khởi chạy ngay lập tức...");
+        };
+
+        // 2. Bắt sự kiện cài đặt Android
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            console.log("Hệ thống Android: Đã sẵn sàng kích hoạt");
+            // Hiện bảng cài đặt của Chrome ngay khi khách vừa chạm vào bất cứ đâu
+            document.body.addEventListener('click', function() {
+                if(deferredPrompt) {
+                    deferredPrompt.prompt();
+                    deferredPrompt = null;
+                }
+            }, { once: true });
         });
 
-        // 2. Xử lý khi nhấn nút cài đặt
-        installBtn.addEventListener('click', async () => {
-            const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
+        // 3. Xử lý nút bấm chính
+        mainBtn.addEventListener('click', async () => {
+            const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+            
             if (deferredPrompt) {
-                // Kích hoạt cho Android
                 deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                if (outcome === 'accepted') {
-                    alert("Cảm ơn bạn! Ứng dụng đang được cài đặt ra màn hình chính.");
-                }
                 deferredPrompt = null;
             } else if (isiOS) {
-                // Kích hoạt hiệu ứng chỉ dẫn cho iOS
-                iosPointer.style.display = 'block';
-                setTimeout(() => {
-                    iosPointer.style.display = 'none';
-                }, 8000);
-                alert("Vui lòng thực hiện các bước sau:\n1. Bấm nút CHIA SẺ ở dưới cùng Safari\n2. Chọn 'Thêm vào màn hình chính' (Add to Home Screen)\n3. Nhấn 'Thêm' để có icon App 8KBET!");
+                document.getElementById('iosPointer').style.display = 'block';
+                alert("Hướng dẫn nhanh:\n1. Nhấn nút Chia sẻ (hình ô vuông ở dưới)\n2. Chọn 'Thêm vào màn hình chính'\n3. Nhấn 'Thêm' để hoàn tất!");
             } else {
-                // Dự phòng cho máy tính hoặc các trình duyệt khác
-                alert("Mẹo: Nhấn vào biểu tượng 3 chấm trên trình duyệt và chọn 'Cài đặt ứng dụng' hoặc 'Thêm vào màn hình chính'!");
+                alert("Vui lòng nhấn dấu 3 chấm trên trình duyệt và chọn 'Cài đặt ứng dụng'!");
             }
         });
-
-        // 3. Logic Chat mô phỏng chuyên nghiệp
-        function handleSend() {
-            const input = document.getElementById('user-input');
-            const val = input.value.trim();
-            if(!val) return;
-
-            // Tin nhắn khách
-            const userMsg = `
-                <div class="flex flex-col gap-2 max-w-[85%] self-end animate-fade-in">
-                    <div class="bg-sky-600 p-4 rounded-2xl rounded-tr-none shadow-md">
-                        <p class="text-sm leading-relaxed text-white">${val}</p>
-                    </div>
-                    <span class="text-[10px] text-slate-500 text-right mr-1">Vừa xong</span>
-                </div>`;
-            chatArea.insertAdjacentHTML('beforeend', userMsg);
-            input.value = "";
-            chatArea.scrollTop = chatArea.scrollHeight;
-
-            // Bot trả lời tự động sau 1s
-            setTimeout(() => {
-                const botReply = `
-                    <div class="flex flex-col gap-2 max-w-[85%] animate-fade-in">
-                        <div class="bg-slate-800/80 p-4 rounded-2xl rounded-tl-none shadow-sm border border-slate-700/50">
-                            <p class="text-sm leading-relaxed text-slate-200">Đội ngũ CSKH đã nhận được thông tin. Vui lòng giữ ứng dụng mở, chuyên viên sẽ phản hồi bạn trong ít phút! ⚡</p>
-                        </div>
-                    </div>`;
-                chatArea.insertAdjacentHTML('beforeend', botReply);
-                chatArea.scrollTop = chatArea.scrollHeight;
-            }, 1000);
-        }
-
-        // 4. Xin quyền thông báo ngay khi vào trang
-        window.onclick = function() {
-            if ("Notification" in window && Notification.permission !== "granted") {
-                Notification.requestPermission();
-            }
-        };
     </script>
 </body>
 </html>
